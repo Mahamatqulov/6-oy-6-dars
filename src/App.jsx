@@ -19,6 +19,18 @@ function App() {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
+  const editedTodo = (t) => {
+    setTodos((prev) => {
+      return prev.map((todo) => {
+        if (todo.id == todo.id) {
+          return { ...t };
+        } else {
+          return todo;
+        }
+      });
+    });
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,7 +38,13 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home todos={todos} deleteTodos={deleteTodos} />,
+          element: (
+            <Home
+              todos={todos}
+              deleteTodos={deleteTodos}
+              editedTodo={editedTodo}
+            />
+          ),
         },
         {
           path: "/create",

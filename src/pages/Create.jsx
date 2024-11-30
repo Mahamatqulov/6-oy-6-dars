@@ -7,7 +7,6 @@ function Create({ setTodos }) {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  console.log(title);
 
   const handleSubmit = (e) => {
     console.log("s");
